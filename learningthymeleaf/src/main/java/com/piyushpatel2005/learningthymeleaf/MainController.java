@@ -9,6 +9,6 @@ public class MainController {
 
 	@RequestMapping("/")
 	public ModelAndView homePage() {
-		return new ModelAndView("homepage");
+		return new ModelAndView("homepage", "username", "Matt Green");
 	}
 }
