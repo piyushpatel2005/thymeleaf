@@ -20,6 +20,14 @@
 			<td th:utext='${model.description}'>Description goes here</td>
 		</tr>
 	</table>
+	<h2>List of Languges Known:</h2>
+	<!-- <p>You speak <span th:if="${model.languages.size() &lt; 3}" th:text="${model.languages.size()}">x</span>
+		<span th:if="${model.languages.size() >= 3}">3 or more</span> languages</p> -->
+		<p>You speak <span th:text="${model.languages.size() >= 3} ? '3 or more' : ${model.languages.size()}">x</span> languages</p>
+	<ul  th:if="${model.languages.size() >= 3}">
+		<li th:each="language: ${model.languages}" th:text="${language}">Language1</li>
+	</ul>
+	<p th:if="${model.languages.size() &lt; 3} AND ${isAdmin}">You speak <span th:each="language: ${model.languages}" th:text="${language} + ' '">language1</span></p>
 	<p><a th:href="@{/}" href="homepage.html">Click Here</a> to Return to the Home Page</p>
 </body>
 </html>

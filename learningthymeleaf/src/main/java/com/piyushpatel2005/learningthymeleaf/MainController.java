@@ -1,7 +1,9 @@
 package com.piyushpatel2005.learningthymeleaf;
 
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -28,6 +30,13 @@ public class MainController {
 		model.put("dateOfBirth", new GregorianCalendar(2006, 3, 9).getTime());
 		model.put("description", "a <strong>fantastic</strong> Java Programmer");
 		
+		List<String> languages = new ArrayList<>();
+		languages.add("English");
+		languages.add("French");
+		languages.add("Spanish");
+		languages.add("Danish");
+		
+		model.put("languages", languages);
 		return new ModelAndView("profile", "model", model);
 	}
 }
