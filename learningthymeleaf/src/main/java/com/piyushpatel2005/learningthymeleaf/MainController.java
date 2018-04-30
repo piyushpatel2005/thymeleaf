@@ -13,7 +13,10 @@ public class MainController {
 
 	@RequestMapping("/")
 	public ModelAndView homePage() {
-		return new ModelAndView("homepage", "username", "Matt Green");
+		Map<String, Object> model = new HashMap<>();
+		model.put("username", "Matt Patel");
+		model.put("id", 173);
+		return new ModelAndView("homepage", "model", model);
 	}
 	
 	@RequestMapping("/profile")
