@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,4 +41,10 @@ public class MainController {
 		model.put("color",  "#ccc");
 		return new ModelAndView("profile", "model", model);
 	}
+	
+	@RequestMapping("/addUser")
+	public ModelAndView addUser() {
+		return new ModelAndView("newUser", "addUserModel" , new AddUserModel());
+	}
+	
 }
