@@ -5,10 +5,13 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
+
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -45,6 +48,14 @@ public class MainController {
 	@RequestMapping("/addUser")
 	public ModelAndView addUser() {
 		return new ModelAndView("newUser", "addUserModel" , new AddUserModel());
+	}
+	
+	@RequestMapping(value="/saveUser", method=RequestMethod.POST)
+	public String saveUser(@Valid AddUserModel addUserModel, BindingResult bindingResult) {
+		if(bindingResult.hasErrors()) {
+			return "newUser";
+		}
+		return "userAdded";
 	}
 	
 }
