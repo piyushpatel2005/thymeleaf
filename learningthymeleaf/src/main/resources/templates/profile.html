@@ -23,7 +23,7 @@
 		</tr>
 	</table>
 	<img src="asterisk_guy.jpg" th:src="@{images/asterisk-guy.jpg}" />
-	<p th:text="${fullname}">full Name</p>
+	<p th:text="${fullname}" style="color: #0f0" th:style="'color:' + ${model.color}">full Name</p>
 	<h2>List of Languges Known:</h2>
 	<!-- <p>You speak <span th:if="${model.languages.size() &lt; 3}" th:text="${model.languages.size()}">x</span>
 		<span th:if="${model.languages.size() >= 3}">3 or more</span> languages</p> -->
