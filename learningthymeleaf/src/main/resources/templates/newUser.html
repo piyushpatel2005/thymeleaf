@@ -14,6 +14,7 @@
 					<input type="text" name="username" id="username" placeholder="username" required="required" th:field="*{username}"/>
 					<input type="password" name="pass1" id="pass1" placeholder="password" required="required" th:field="*{password}"/>
 					<input type="password" name="pass2" id="pass2" placeholder="repeat password" required="required" th:field="*{repeatPassword}"/>
+					<div th:errors="*{repeatPassword}">Error Message</div>
 				</div>
 		
 				<div class="fieldSection">
