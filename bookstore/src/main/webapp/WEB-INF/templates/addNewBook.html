@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+   	<title>Enter a new book</title>
+   	<link th:href="@{styles.css}"  href="styles.css" rel="Stylesheet" type="text/css"/>
+   </head>
+
+   <body>
+	  <div th:replace="/templates/headerAndFooter :: header" >header goes here</div>
+
+
+	  <div id="addBook"> 
+		  <form action="/addNewBook.do" method="POST">
+	         <label>Enter ISBN</label><input type="text" th:field="*{book.isbn}"/>	
+	         						  <span th:errors="*{book.isbn}" class="error" >error message</span>  
+	                                  	                    
+	         <label>Enter Title</label> <input  type="text" th:field="*{book.title}"/>
+	         		                    <span th:errors="*{book.title}" class="error" >error message</span>  
+	         	
+	         <label>Enter Author</label><input  type="text" th:field="*{book.author}"/>
+	         		                    <span th:errors="*{book.author}" class="error" >error message</span>  
+	         <label>Enter Category</label> <select th:field="*{book.category}">
+	         								<option th:each="category : ${book.allCategories}" th:text="${category.value}" th:value="${category.key}" >category</option>
+	         							    </select>	
+	         							<span th:errors="*{book.category}" class="error" >error message</span>
+	    	 <div class="clearBoth"></div>
+	         <label>Enter Price</label><input  type="text" th:field="*{book.price}"/>	               
+	         	                       <span th:errors="*{book.price}" class="error" >error message</span>  
+	         
+	
+	         <input type="submit" value="Add New Book"/>
+	      </form>		   	  
+      </div>
+            
+      <div th:replace="/templates/headerAndFooter :: footer">Footer goes here</div>
+   </body>
+</html>

@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>All books for our store</title>
+	<link th:href="@{styles.css}"  href="styles.css" rel="Stylesheet" type="text/css"/>
+</head>
+  
+<body>
+
+	<div th:replace="/templates/headerAndFooter :: header" >header goes here</div>
+	
+	<div id="books">
+		<ul>
+		
+			<li th:each="nextBook : ${allBooks}">
+				<h2 th:text="${nextBook.title}" >book title</h2>
+				<p>
+					 by  <span th:text="${nextBook.author}" >author</span>
+					 	 $ <span th:text="${#numbers.formatDecimal(nextBook.price,3,2,'COMMA')}"   >price</span>
+					      				
+					<form method='post' action='addToCart.do'>
+						<input type='hidden' name='id' th:value='${nextBook.id}'/>
+						<input type='image' src='cart-button.png'/>
+				    </form>
+				
+				</p>
+				
+			</li>
+					
+		</ul>
+	</div>
+		
+	<div th:replace="/templates/headerAndFooter :: footer">Footer goes here</div>
+	
+</body>
+
+</html>

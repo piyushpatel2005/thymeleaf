@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="header">
+	<h1>JR <span>Hartley</span> <small>booksellers since 1923</small></h1>
+	
+	<div id="links">
+		<ul>
+			<li><a href='viewAllBooks.do'>All Books</a></li>
+			<li><a href='viewCart.do'>Your Shopping Cart</a></li>
+			<li><a href='findByAuthor.jsp'>Find By Author</a></li>
+			<li><a href='addNewBook.do'>Add a New Book</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<div th:fragment="footer">
+	<div id="footer">
+		<p>No rights reserved. Please visit our <a href="tc.jsp">Terms and Conditions</a> 
+		page to find out why you probably don't want anything from this site.</p>
+	</div>
+</div>
+</body>
+</html>
